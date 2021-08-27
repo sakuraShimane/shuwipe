@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
@@ -10,6 +12,15 @@ class ExplorePage extends StatefulWidget {
   @override
   _ExplorePageState createState() => _ExplorePageState();
 }
+
+//class VideoPlayerPage extends StatefulWidget {
+//  @override
+//  _VideoPlayerPageState createState() => _VideoPlayerPageState();
+//}
+
+//class _VideoPlayerPageState extends State< VideoPlayerpage > {
+//  late
+//}
 
 class _ExplorePageState extends State<ExplorePage>
     with TickerProviderStateMixin {
@@ -27,11 +38,20 @@ class _ExplorePageState extends State<ExplorePage>
 
     //ビデオ流したい
     _controller = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
-      ..initialize().then((_) {
+        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4');
+    _controller.initialize().then((_) {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
+      //最初のフレームを描画するため初期化後に更新
+      _controller.play();
+      _controller.setLooping(true);
+      setState(() {});
       });
+
+    @override
+    void dispose() {
+      _controller.dispose();
+      super.dispose();
+    }
 
     setState(() {
       itemsTemp = explore_json;
@@ -74,7 +94,13 @@ class _ExplorePageState extends State<ExplorePage>
               borderRadius: BorderRadius.circular(10),
               child: Stack(
                 children: [
-                  Container(
+                  /*AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
+                    // 動画を表示
+                    child: VideoPlayer(_controller),
+                  ),
+                  */
+                 Container(
                     width: size.width,
                     height: size.height,
                     decoration: BoxDecoration(
@@ -82,7 +108,24 @@ class _ExplorePageState extends State<ExplorePage>
                           image: AssetImage(itemsTemp[index]['img']),
                           fit: BoxFit.cover),
                     ),
-                  ),
+                  )
+                  /*
+                Container(
+                FittedBox(
+                      fit: BoxFit.cover,
+                      child: SizedBox(
+                        width: _controller.value.size?.width ?? 0,
+                        height: _controller.value.size?.height ?? 0,
+                        child: VideoPlayer(_controller),
+                      ),
+                    ),
+            ),*/
+
+                    //)
+                   // width: size.width,
+                   //height: size.height,
+                    //hild: VideoPlayer(_controller),
+/*
                   Container(
                     width: size.width,
                     height: size.height,
@@ -119,7 +162,7 @@ class _ExplorePageState extends State<ExplorePage>
                                           width: 10,
                                         ),
                                         Text(
-                                          itemsTemp[index]['age'],
+                                          itemsTemp[index]['company'],
                                           style: TextStyle(
                                             color: white,
                                             fontSize: 22,
@@ -236,7 +279,8 @@ class _ExplorePageState extends State<ExplorePage>
                  // if( align.x < 0 ) rightBudge()//左にスワイプしたらLIKEバッチを呼び出したい
                     //else if( align.x > 0 )//関数名　みぎのとき
                   //rightBudge()
-                ],
+
+               */ ],
               ),
             ),
           ),
