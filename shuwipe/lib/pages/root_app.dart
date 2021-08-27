@@ -4,6 +4,7 @@ import 'package:tinder_clone/pages/account_page.dart';
 import 'package:tinder_clone/pages/chat_page.dart';
 import 'package:tinder_clone/pages/explore_page.dart';
 import 'package:tinder_clone/pages/likes_page.dart';
+//import 'package:video_player/video_player.dart';
 
 class RootPage extends StatefulWidget {
   @override
@@ -12,7 +13,19 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int pageIndex = 0;
-  @override
+  //VideoPlayerController _controller;
+
+  /*@override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(
+        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
+  }*/
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,

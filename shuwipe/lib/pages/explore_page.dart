@@ -4,6 +4,7 @@ import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:tinder_clone/data/explore_json.dart';
 import 'package:tinder_clone/data/icons.dart';
 import 'package:tinder_clone/theme/colors.dart';
+import 'package:video_player/video_player.dart';
 
 class ExplorePage extends StatefulWidget {
   @override
@@ -12,14 +13,26 @@ class ExplorePage extends StatefulWidget {
 
 class _ExplorePageState extends State<ExplorePage>
     with TickerProviderStateMixin {
+
   CardController controller;
+  VideoPlayerController _controller;
 
   List itemsTemp = [];
   int itemLength = 0;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    //ビデオ流したい
+    _controller = VideoPlayerController.network(
+        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
+
     setState(() {
       itemsTemp = explore_json;
       itemLength = explore_json.length;

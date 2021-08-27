@@ -12,15 +12,22 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey.withOpacity(0.2),
+        resizeToAvoidBottomInset: false,//下の方にoverflow bottom みたいなので挿入した
+        backgroundColor: grey.withOpacity(0.2),
       body: getBody(),
     );
   }
 
+//  SingleChildScrollView({
   Widget getBody() {
     var size = MediaQuery.of(context).size;
-    return ClipPath(
+    //A RenderFlex overflowed by 207 pixels on the bottom.エラー回避したい
+
+    //return ClipPath(
+    return ClipPath( //くりぬいている
       clipper: OvalBottomBorderClipper(),
+      //
+      //SingleChildScrollView(
       child: Container(
         width: size.width,
         height: size.height * 0.60,
@@ -39,19 +46,60 @@ class _AccountPageState extends State<AccountPage> {
             children: [
               Container(
                 width: 140,
-                height: 140,
+                height: 200,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: AssetImage(account_json[0]['img']),
+                        //image: AssetImage(account_json[0]['img']),
+                        image: AssetImage(account_json[1]['img']),
                         fit: BoxFit.cover)),
               ),
               SizedBox(
                 height: 15,
               ),
               Text(
-                account_json[0]['name'] + ", " + account_json[0]['age'],
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                //account_json[0]['name'] + ", " + account_json[0]['age'],
+                account_json[1]['name'] + " ( "+ account_json[1]['furi'] +" )",
+                textAlign: TextAlign.center, //文字を中央揃えにする
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                //account_json[0]['name'] + ", " + account_json[0]['age'],
+                "\n[　プロフィール　]",
+                //"\n▶　プロフィール　◀,
+                textAlign: TextAlign.center, //文字を中央揃えにする
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                //account_json[0]['name'] + ", " + account_json[0]['age'],
+                account_json[1]['age'] + " ( "+ account_json[1]['birth'] + " )\n" + account_json[1]['number'],
+                textAlign: TextAlign.center, //文字を中央揃えにする
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                //account_json[0]['name'] + ", " + account_json[0]['age'],
+                "\n[　希望職種　]",
+                textAlign: TextAlign.center, //文字を中央揃えにする
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                //account_json[0]['name'] + ", " + account_json[0]['age'],
+                "エンジニア職／デザイナー職",
+                textAlign: TextAlign.center, //文字を中央揃えにする
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                //account_json[0]['name'] + ", " + account_json[0]['age'],
+                "\n[　学歴情報　]",
+                //"\n▶　プロフィール　◀,
+                textAlign: TextAlign.center, //文字を中央揃えにする
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                //account_json[0]['name'] + ", " + account_json[0]['age'],
+                "北陸先端科学技術大学院　知識科学系　修士課程1年　Yamanoue.Inc　ハッカソン初挑戦！",
+                textAlign: TextAlign.center, //文字を中央揃えにする
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
               ),
               SizedBox(
                 height: 20,
@@ -65,6 +113,13 @@ class _AccountPageState extends State<AccountPage> {
                       Container(
                         width: 60,
                         height: 60,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              //image: AssetImage(account_json[0]['img']),
+                            image: AssetImage(account_json[2]['img']),
+                            fit: BoxFit.cover)),
+                        /*
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: white,
@@ -81,12 +136,13 @@ class _AccountPageState extends State<AccountPage> {
                           size: 35,
                           color: grey.withOpacity(0.5),
                         ),
+                        */
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 15,
                       ),
                       Text(
-                        "SETTINGS",
+                        "DART",
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
@@ -101,6 +157,13 @@ class _AccountPageState extends State<AccountPage> {
                         Container(
                           width: 85,
                           height: 85,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                //image: AssetImage(account_json[0]['img']),
+                                  image: AssetImage(account_json[3]['img']),
+                                  fit: BoxFit.cover)),
+                          /*
                           child: Stack(
                             children: [
                               Container(
@@ -149,12 +212,13 @@ class _AccountPageState extends State<AccountPage> {
                               )
                             ],
                           ),
+                          */
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 15,
                         ),
                         Text(
-                          "ADD MEDIA",
+                          "PYTHON",
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
@@ -168,6 +232,13 @@ class _AccountPageState extends State<AccountPage> {
                       Container(
                         width: 60,
                         height: 60,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              //image: AssetImage(account_json[0]['img']),
+                                image: AssetImage(account_json[4]['img']),
+                                fit: BoxFit.cover)),
+                        /*
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: white,
@@ -184,12 +255,13 @@ class _AccountPageState extends State<AccountPage> {
                           size: 35,
                           color: grey.withOpacity(0.5),
                         ),
+                        */
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Text(
-                        "EDIT INFO",
+                        "HTML",
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
@@ -206,3 +278,4 @@ class _AccountPageState extends State<AccountPage> {
     );
   }
 }
+//})
