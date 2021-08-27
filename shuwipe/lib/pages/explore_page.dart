@@ -218,16 +218,41 @@ class _ExplorePageState extends State<ExplorePage>
                       ],
                     ),
                   )
+                //LIKE　ULIKEの判別をしたい
+                  //if (isUserInFocus) buildLikeBadge(swipingDirection)
+                 // if( align.x < 0 ) rightBudge()//左にスワイプしたらLIKEバッチを呼び出したい
+                    //else if( align.x > 0 )//関数名　みぎのとき
+                  //rightBudge()
                 ],
               ),
             ),
           ),
           cardController: controller = CardController(),
           swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {
-            /// Get swiping card's alignment
-            if (align.x < 0) {
+            /// Get swiping card's alignment 角度によってやること変える
+            if (align.x < 0)  rightBudge();//左にスワイプしたらLIKEバッチを呼び出したい
+   /* {
               //Card is LEFT swiping
-            } else if (align.x > 0) {
+              //左側に傾いているとき、文字を出したい
+                  child: Text(
+                      'LIKE',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    );
+
+                  /*
+              Container(
+                child: Padding(
+                  child:
+                  Text("Left/興味がない企業さん",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 36))
+            ),
+            );*/
+              //print("left");
+
+            }*/ else if (align.x > 0) {
               //Card is RIGHT swiping
             }
             // print(itemsTemp.length);
@@ -245,8 +270,38 @@ class _ExplorePageState extends State<ExplorePage>
     );
   }
 
+  Widget rightBudge( ) {
+    //final isSwipingRight = swipingDirection == SwipingDirection.right;
+    //final color = isSwipingRight ? Colors.green : Colors.pink;
+    final color = Colors.green;
+    //final angle = isSwipingRight ? -0.5 : 0.5;
+
+   return Positioned(
+        top: 20,
+        //right: align.x ? null : 20,
+        //left: isSwipingRight ? 20 : null,
+        child: Transform.rotate(
+          //angle: angle,
+          child: Container(
+            padding: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              border: Border.all(color: color, width: 2),
+            ),
+            child: Text(
+              'LIKE',
+              style: TextStyle(
+                color: color,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      );
+  }
+
   Widget getBottomSheet() {
-    var size = MediaQuery.of(context).size;
+    var size = MediaQuery.of( context ).size;
     return Container(
       width: size.width,
       height: 120,
