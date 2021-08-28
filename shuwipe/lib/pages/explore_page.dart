@@ -55,7 +55,12 @@ class _ExplorePageState extends State<ExplorePage>
 
     setState(() {
       itemsTemp = explore_json;
-      itemLength = explore_json.length;
+      itemLength = 10;
+      /*
+      if( explore_json.length != null){
+        itemLength = explore_json.length;
+      }
+      */
     });
   }
 
@@ -108,7 +113,7 @@ class _ExplorePageState extends State<ExplorePage>
                           image: AssetImage(itemsTemp[index]['img']),
                           fit: BoxFit.cover),
                     ),
-                  )
+                  ),
                   /*
                 Container(
                 FittedBox(
@@ -125,7 +130,7 @@ class _ExplorePageState extends State<ExplorePage>
                    // width: size.width,
                    //height: size.height,
                     //hild: VideoPlayer(_controller),
-/*
+
                   Container(
                     width: size.width,
                     height: size.height,
@@ -162,7 +167,7 @@ class _ExplorePageState extends State<ExplorePage>
                                           width: 10,
                                         ),
                                         Text(
-                                          itemsTemp[index]['company'],
+                                          itemsTemp[index]['age'],
                                           style: TextStyle(
                                             color: white,
                                             fontSize: 22,
@@ -186,7 +191,7 @@ class _ExplorePageState extends State<ExplorePage>
                                           width: 10,
                                         ),
                                         Text(
-                                          "Recently Active",
+                                          "人事最高責任者",
                                           style: TextStyle(
                                             color: white,
                                             fontSize: 16,
@@ -256,6 +261,8 @@ class _ExplorePageState extends State<ExplorePage>
                                   ],
                                 ),
                               ),
+
+                              /*
                               Expanded(
                                 child: Container(
                                   width: size.width * 0.2,
@@ -268,6 +275,8 @@ class _ExplorePageState extends State<ExplorePage>
                                   ),
                                 ),
                               )
+                            */
+
                             ],
                           ),
                         )
@@ -280,14 +289,15 @@ class _ExplorePageState extends State<ExplorePage>
                     //else if( align.x > 0 )//関数名　みぎのとき
                   //rightBudge()
 
-               */ ],
+               ],
               ),
             ),
           ),
           cardController: controller = CardController(),
           swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {
             /// Get swiping card's alignment 角度によってやること変える
-            if (align.x < 0)  rightBudge();//左にスワイプしたらLIKEバッチを呼び出したい
+            if (align.x < 0) {}
+              //rightBudge();//左にスワイプしたらLIKEバッチを呼び出したい
    /* {
               //Card is LEFT swiping
               //左側に傾いているとき、文字を出したい
@@ -327,6 +337,7 @@ class _ExplorePageState extends State<ExplorePage>
     );
   }
 
+  /*
   Widget rightBudge( ) {
     //final isSwipingRight = swipingDirection == SwipingDirection.right;
     //final color = isSwipingRight ? Colors.green : Colors.pink;
@@ -356,7 +367,9 @@ class _ExplorePageState extends State<ExplorePage>
         ),
       );
   }
+  */
 
+  /* もとのやつ
   Widget getBottomSheet() {
     var size = MediaQuery.of( context ).size;
     return Container(
@@ -390,6 +403,62 @@ class _ExplorePageState extends State<ExplorePage>
               ),
             );
           }),
+        ),
+      ),
+    );
+  }
+*/
+
+  Widget getBottomSheet() {
+    var size = MediaQuery.of( context ).size;
+    return Container(
+      width: size.width,
+      height: 120,
+      decoration: BoxDecoration(color: white),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+        child: Row(
+          children: [
+            /*
+            Container(
+              width: 10,
+              height: 10,
+              decoration: BoxDecoration(
+                  color: green,
+                  shape: BoxShape.circle),
+            ),
+            */
+
+            SizedBox(
+              width: 10,
+            ),
+            Icon(
+                Icons.undo,
+                size: 100 // アイコンの大きさを設定できる
+            ),
+            Text(
+              "この企業に興味あり！",
+              style: TextStyle(
+                color: black,
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(
+              width: 200,
+            ),
+            Text(
+              "この企業は興味ないかなあ",
+              style: TextStyle(
+                color: black,
+                fontSize: 16,
+              ),
+            ),
+             Icon(
+                  Icons.redo,
+                  size: 100 // アイコンの大きさを設定できる
+              ),
+
+          ],
         ),
       ),
     );
