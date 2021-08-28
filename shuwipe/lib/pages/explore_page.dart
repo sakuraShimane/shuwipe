@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -165,6 +164,13 @@ class _ExplorePageState extends State<ExplorePage>
                                         ),
                                         SizedBox(
                                           width: 10,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 0,
                                         ),
                                         Text(
                                           itemsTemp[index]['age'],
@@ -418,6 +424,7 @@ class _ExplorePageState extends State<ExplorePage>
       child: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             /*
             Container(
@@ -434,20 +441,20 @@ class _ExplorePageState extends State<ExplorePage>
             ),
             Icon(
                 Icons.undo,
-                size: 100 // アイコンの大きさを設定できる
+                size: 80 // アイコンの大きさを設定できる
             ),
             Text(
-              "この企業に興味あり！",
+              "興味あり！",
               style: TextStyle(
                 color: black,
                 fontSize: 16,
               ),
             ),
             SizedBox(
-              width: 200,
+              width: 90,
             ),
             Text(
-              "この企業は興味ないかなあ",
+              "興味なし",
               style: TextStyle(
                 color: black,
                 fontSize: 16,
@@ -455,7 +462,7 @@ class _ExplorePageState extends State<ExplorePage>
             ),
              Icon(
                   Icons.redo,
-                  size: 100 // アイコンの大きさを設定できる
+                  size: 80 // アイコンの大きさを設定できる
               ),
 
           ],

@@ -28,7 +28,7 @@ class _LikesPageState extends State<LikesPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                likes_json.length.toString() + "あなたが興味ある企業さんリスト",
+                "あなたが興味ある企業さんリスト",
                // likes_json.length.toString() + " Likes",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
@@ -103,7 +103,7 @@ class _LikesPageState extends State<LikesPage> {
                                         width: 5,
                                       ),
                                       Text(
-                                        "Recently Active",
+                                        "未読メッセージあり",
                                         style: TextStyle(
                                           color: white,
                                           fontSize: 14,
@@ -128,7 +128,7 @@ class _LikesPageState extends State<LikesPage> {
                                         width: 5,
                                       ),
                                       Text(
-                                        "Offline",
+                                        "既読されました",
                                         style: TextStyle(
                                           color: white,
                                           fontSize: 14,
@@ -166,11 +166,34 @@ class _LikesPageState extends State<LikesPage> {
                   borderRadius: BorderRadius.circular(30),
                   gradient: LinearGradient(colors: [yellow_one, yellow_two])),
               child: Center(
-                child: Text("SEE WHO LIKES YOU",
-                    style: TextStyle(
+                child:
+                Row(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Container(
+                    //   width: 8,
+                    //   height: 8,
+                    //   decoration: BoxDecoration(
+                    //       color: grey,
+                    //       shape: BoxShape.circle),
+                    // ),
+                    SizedBox(
+                      width: 90,
+                    ),
+                    Icon(
+                      Icons.search,
+                      color: black.withOpacity(0.5),
+                    ),
+                    Text(
+                      "マイ企業リストから検索する",
+                      style: TextStyle(
                         color: white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold)),
+                        fontSize: 14,
+                      ),
+                    )
+                  ],
+                ),
+
               ),
             )
           ],

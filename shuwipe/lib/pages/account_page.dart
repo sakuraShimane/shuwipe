@@ -30,7 +30,7 @@ class _AccountPageState extends State<AccountPage> {
       //SingleChildScrollView(
       child: Container(
         width: size.width,
-        height: size.height * 0.60,
+        height: size.height * 0.90,
         decoration: BoxDecoration(color: white, boxShadow: [
           BoxShadow(
             color: grey.withOpacity(0.1),
@@ -40,7 +40,7 @@ class _AccountPageState extends State<AccountPage> {
           ),
         ]),
         child: Padding(
-          padding: const EdgeInsets.only(left: 30, right: 30, bottom: 40),
+          padding: const EdgeInsets.only(left: 30, right: 30, bottom: 130),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

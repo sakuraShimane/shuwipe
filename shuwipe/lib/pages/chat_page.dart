@@ -30,7 +30,8 @@ class _ChatPageState extends State<ChatPage> {
                 style: TextStyle(
                     fontSize: 18, fontWeight: FontWeight.bold, color: primary),
               ),
-              Container(
+    /*
+    Container(
                 height: 25,
                 width: 1,
                 decoration: BoxDecoration(color: black.withOpacity(0.15)),
@@ -42,6 +43,7 @@ class _ChatPageState extends State<ChatPage> {
                     fontWeight: FontWeight.bold,
                     color: black.withOpacity(0.5)),
               ),
+              */
             ],
           ),
         ),
