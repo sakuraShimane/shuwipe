@@ -44,8 +44,8 @@ class _RootPageState extends State<RootPage> {
   Widget getAppBar() {
     List bottomItems = [
       pageIndex == 0
-          ? "assets/images/explore_active_icon.svg"
-          : "assets/images/explore_icon.svg",
+          ? "assets/images/logo/chat_c.svg"
+          : "assets/images/logo/chat_g.svg",
       pageIndex == 1
           ? "assets/images/likes_active_icon.svg"
           : "assets/images/likes_icon.svg",

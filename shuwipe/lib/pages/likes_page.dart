@@ -28,10 +28,11 @@ class _LikesPageState extends State<LikesPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                likes_json.length.toString() + "あなたが興味あるした企業さん",
+                likes_json.length.toString() + "あなたが興味ある企業さんリスト",
                // likes_json.length.toString() + " Likes",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
+              /*
               Text(
                 "Top Picks",
                 style: TextStyle(
@@ -39,6 +40,8 @@ class _LikesPageState extends State<LikesPage> {
                     fontWeight: FontWeight.bold,
                     color: black.withOpacity(0.5)),
               ),
+              */
+
             ],
           ),
         ),
