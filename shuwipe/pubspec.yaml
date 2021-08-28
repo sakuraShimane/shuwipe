@@ -32,10 +32,18 @@ dependencies:
   line_icons:
   flutter_svg:
   flutter_custom_clippers: ^1.1.2
+  #flutter_launcher_icons: ^0.8.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+ # flutter_launcher_icons: any
+
+#flutter_icons:
+ # android: true
+#  ios: true
+  #image_path: "/assets/images/shuwipe_logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -48,6 +56,7 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/
     - assets/images/
     - assets/images/girls/
     - assets/images/hama/ #Hamaファイルの中を使うために追記した
