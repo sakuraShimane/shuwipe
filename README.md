@@ -1,7 +1,7 @@
 # Shuwipe 
 スワイプで就活！　Let's "__Shuwipe__"
 
-[株式会社サポーターズ](https://corp.supporterz.jp/)が主催している技育CAMP：[就活が楽しくなるアプリケーション~オンライン開発合宿vol.8~](https://talent.supporterz.jp/events/31eb4b15-c835-472f-ac8b-39a02c534f01/)に参加．
+[株式会社サポーターズ](https://corp.supporterz.jp/)が主催している技育CAMP：[就活が楽しくなるアプリケーション-オンライン開発合宿vol.8-](https://talent.supporterz.jp/events/31eb4b15-c835-472f-ac8b-39a02c534f01/)に参加．
 
 テーマを「就活が楽しくなるアプリケーション」として，"__Shuwipe__"を提案．
 
